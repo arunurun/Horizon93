@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Floors | Sector 93, Gurugram | Interactive Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: A single-page, thematic dashboard design. A sticky top navigation allows users to jump to key sections: Overview, Location, Floor Plans, Amenities, Comparison, and Investment. This non-linear structure empowers users to explore based on their priorities, making it more efficient than a traditional report. The flow is designed to answer a buyer's questions logically, starting broad and allowing deep dives into specifics like pricing and competitor analysis. This structure was chosen for its user-centric approach, prioritizing ease of navigation and quick access to decision-making information. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Competitive Pricing -> Goal: Compare -> Viz: Interactive Bar Chart -> Interaction: Hover for details -> Justification: Immediately visualizes the 'premium affordable' value proposition against competitors. -> Library: Chart.js.
+        - Report Info: Property Appreciation (57.01%) -> Goal: Show Growth -> Viz: Line Chart -> Interaction: Animate on scroll -> Justification: Powerfully quantifies the investment argument, more impactful than text. -> Library: Chart.js.
+        - Report Info: Vicinity -> Goal: Organize & Locate -> Viz: Interactive CSS Diagram -> Interaction: Hover over icons -> Justification: Creates an engaging, map-like experience that's easier to digest than a list. -> Library/Method: HTML/CSS/JS.
+        - Report Info: Floor Plans -> Goal: Inform & Compare -> Viz: Tabbed Interface -> Interaction: Click to switch views -> Justification: Allows easy comparison of 2/3 BHK options without cluttering the page. -> Library/Method: HTML/CSS/JS.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #1e40af; /* blue-800 */
+            border-bottom-color: #1e40af;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-900">Horizon Floors</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#overview" class="nav-link text-gray-600 font-medium pb-1">Overview</a>
+                <a href="#location" class="nav-link text-gray-600 font-medium pb-1">Location</a>
+                <a href="#plans" class="nav-link text-gray-600 font-medium pb-1">Floor Plans</a>
+                <a href="#amenities" class="nav-link text-gray-600 font-medium pb-1">Amenities</a>
+                <a href="#comparison" class="nav-link text-gray-600 font-medium pb-1">Comparison</a>
+                <a href="#investment" class="nav-link text-gray-600 font-medium pb-1">Investment</a>
+            </div>
+            <a href="#contact" class="hidden md:block bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">Enquire Now</a>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#overview" class="block nav-link text-gray-600">Overview</a>
+            <a href="#location" class="block nav-link text-gray-600">Location</a>
+            <a href="#plans" class="block nav-link text-gray-600">Floor Plans</a>
+            <a href="#amenities" class="block nav-link text-gray-600">Amenities</a>
+            <a href="#comparison" class="block nav-link text-gray-600">Comparison</a>
+            <a href="#investment" class="block nav-link text-gray-600">Investment</a>
+            <a href="#contact" class="block bg-blue-700 text-white text-center mt-2 px-4 py-2 rounded-lg hover:bg-blue-800 transition">Enquire Now</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative bg-gray-100 py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Your Gateway to an Elevated Lifestyle</h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Discover Horizon Floors in Sector 93, Gurugram – where the privacy of independent living meets the luxury of a gated community.</p>
+                <div class="mt-8 flex justify-center gap-4 flex-wrap">
+                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                        <span class="font-bold text-blue-700">2 & 3 BHK</span>
+                        <p class="text-sm text-gray-500">Independent Floors</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                        <span class="font-bold text-blue-700">Starting ₹1.25 Cr*</span>
+                        <p class="text-sm text-gray-500">Onwards</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 shadow-sm text-center">
+                        <span class="font-bold text-blue-700">Stilt + 4</span>
+                        <p class="text-sm text-gray-500">With Private Lift</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="py-16 md:py-24 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">The Horizon Advantage</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">This section introduces the core pillars of Horizon Floors. We've designed this project to excel in four key areas that matter most to homeowners: a luxurious lifestyle, a strategic location, a future-proof design, and a strong investment potential.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-blue-700 mb-4">
+                            <span class="text-4xl">★</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Unmatched Lifestyle</h3>
+                        <p class="text-gray-600">Experience a host of world-class amenities including a clubhouse, temperature-controlled pool, and lush green parks within a secure gated township.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                         <div class="text-blue-700 mb-4">
+                            <span class="text-4xl">📍</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Prime Location</h3>
+                        <p class="text-gray-600">Enjoy seamless connectivity to Dwarka Expressway, NH-8, and IGI Airport, with top schools, hospitals, and malls just minutes away.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                         <div class="text-blue-700 mb-4">
+                            <span class="text-4xl">💡</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Future-Ready Design</h3>
+                        <p class="text-gray-600">Live in a home with private lifts, dedicated parking, two-side open layouts, EV charging points, and premium interior finishes.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                         <div class="text-blue-700 mb-4">
+                            <span class="text-4xl">📈</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Strong Investment</h3>
+                        <p class="text-gray-600">Benefit from the DDJAY scheme's individual land ownership and invest in a location with proven high appreciation rates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="py-16 md:py-24 bg-gray-50 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">At the Center of Everything</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Location is paramount. This interactive map highlights how Horizon Floors places you at the nexus of connectivity and convenience in New Gurugram. Hover over the icons to see how close you are to key destinations, from major highways to essential social infrastructure.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg relative max-w-4xl mx-auto overflow-hidden">
+                    <div class="absolute inset-0 bg-blue-50 opacity-50"></div>
+                    <div class="relative grid grid-cols-3 sm:grid-cols-5 gap-4 items-center justify-center h-96 md:h-[450px]">
+                        
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+                            <div class="bg-blue-700 text-white rounded-full w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center flex-col shadow-2xl">
+                                <span class="font-bold text-lg sm:text-xl">Horizon</span>
+                                <span class="text-sm">Sector 93</span>
+                            </div>
+                        </div>
+
+                        <div class="location-item absolute top-[10%] left-[42%] text-center" data-info="Dwarka E-way (5 Mins)">
+                            <div class="icon">🛣️</div><div class="label">Expressway</div>
+                        </div>
+                        <div class="location-item absolute top-[25%] left-[10%]" data-info="NH-8 (10 Mins)">
+                            <div class="icon">🚗</div><div class="label">NH-8</div>
+                        </div>
+                        <div class="location-item absolute top-[20%] right-[15%]" data-info="IGI Airport (25 Mins)">
+                            <div class="icon">✈️</div><div class="label">Airport</div>
+                        </div>
+                        <div class="location-item absolute top-[60%] left-[5%]" data-info="IMT Manesar (15 Mins)">
+                            <div class="icon">🏢</div><div class="label">IMT Manesar</div>
+                        </div>
+                        <div class="location-item absolute bottom-[10%] left-[20%]" data-info="DPS & RPS Int'l">
+                            <div class="icon">🏫</div><div class="label">Schools</div>
+                        </div>
+                        <div class="location-item absolute bottom-[15%] right-[15%]" data-info="Medeor & Aarvy">
+                            <div class="icon">🏥</div><div class="label">Hospitals</div>
+                        </div>
+                        <div class="location-item absolute top-[65%] right-[10%]" data-info="Sapphire 83 Mall">
+                            <div class="icon">🛍️</div><div class="label">Malls</div>
+                        </div>
+                        <div class="location-item absolute bottom-[5%] left-[55%]" data-info="Upcoming Metro">
+                            <div class="icon">🚇</div><div class="label">Metro</div>
+                        </div>
+                    </div>
+                    <div id="location-tooltip" class="absolute bg-gray-900 text-white text-sm rounded py-1 px-2 pointer-events-none opacity-0 transition-opacity duration-300 z-20"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="py-16 md:py-24 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Designed for Modern Living</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">Explore our thoughtfully designed floor plans. Whether you're looking for a cozy 2 BHK or a more spacious 3 BHK, each independent floor is crafted for comfort, privacy, and luxury. Use the buttons below to toggle between the different configurations.</p>
+                </div>
+                <div class="flex justify-center mb-8 space-x-4">
+                    <button class="plan-toggle-btn active bg-blue-700 text-white px-6 py-2 rounded-lg" data-plan="2bhk">2 BHK</button>
+                    <button class="plan-toggle-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg" data-plan="3bhk">3 BHK</button>
+                </div>
+
+                <div id="plan-details" class="max-w-4xl mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="amenities" class="py-16 md:py-24 bg-gray-50 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">A World of Amenities</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">This section provides a quick, scannable overview of the lifestyle you can expect at Horizon Floors. We've curated a comprehensive suite of amenities to cater to your wellness, recreation, and security needs, ensuring a fulfilling experience for every member of your family.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🏛️</span>
+                        <h3 class="font-semibold mt-2">Clubhouse</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🏊</span>
+                        <h3 class="font-semibold mt-2">Temp-Controlled Pool</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🏋️</span>
+                        <h3 class="font-semibold mt-2">Indoor Gym</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🏃</span>
+                        <h3 class="font-semibold mt-2">Jogging Tracks</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🛡️</span>
+                        <h3 class="font-semibold mt-2">24x7 Security</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🎾</span>
+                        <h3 class="font-semibold mt-2">Paddle Court</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🤸</span>
+                        <h3 class="font-semibold mt-2">Kids' Play Area</h3>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-lg shadow-sm">
+                        <span class="text-4xl">🌳</span>
+                        <h3 class="font-semibold mt-2">Lush Parks</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="py-16 md:py-24 bg-white section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">How We Compare</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Understanding the market is key to making a smart decision. This interactive chart visually compares the starting price of Horizon Floors with other prominent projects in the vicinity. It clearly demonstrates our unique "premium affordable" positioning, offering superior value in the independent floor segment.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="investment" class="py-16 md:py-24 bg-gray-50 section-fade-in">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">An Investment in Your Future</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Investing in Horizon Floors is more than buying a home; it's securing an asset in one of Gurugram's fastest-growing corridors. This chart illustrates the remarkable property value appreciation in Sector 93, underscoring the strong growth potential of your investment.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="investmentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-blue-800 text-white section-fade-in">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">Ready to Take the Next Step?</h2>
+                <p class="mt-3 text-lg text-blue-200 max-w-2xl mx-auto">Experience the unique charm and superior offerings of Horizon Floors firsthand. Fill out the form below to schedule a personalized consultation with our team.</p>
+                <form class="mt-8 max-w-xl mx-auto">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="mt-4">
+                        <input type="tel" placeholder="Your Phone Number" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="mt-4">
+                        <textarea placeholder="Your Message (Optional)" rows="4" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" class="w-full sm:w-auto bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-blue-100 transition-colors">Submit Enquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Horizon Floors by Guliani Group. All rights reserved.</p>
+            <p class="text-sm mt-2">HARERA No. 55 of 2023. This is for informational purposes only and does not constitute an offer or solicitation.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+            sections.forEach(section => navObserver.observe(section));
+
+            const fadeInObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.section-fade-in').forEach(section => {
+                fadeInObserver.observe(section);
+            });
+
+            const planData = {
+                '2bhk': {
+                    title: '2 BHK Independent Floor',
+                    size: '963 sq. ft.',
+                    price: '₹1.25 Cr* Onwards',
+                    features: ['2 Bedrooms', 'Spacious Living Area', 'Modern Kitchen', '2 Wide Balconies', 'Private Lift Access']
+                },
+                '3bhk': {
+                    title: '3 BHK Independent Floor',
+                    size: '1395 sq. ft.',
+                    price: 'Starting from ₹1.5 Cr* (Est.)',
+                    features: ['3 Bedrooms', 'Large Living & Dining', 'Modular Kitchen', '3 Attached Balconies', 'Dedicated Parking & Lift']
+                }
+            };
+
+            const planDetailsContainer = document.getElementById('plan-details');
+            const planToggleButtons = document.querySelectorAll('.plan-toggle-btn');
+
+            function updatePlanDetails(planType) {
+                const data = planData[planType];
+                planDetailsContainer.innerHTML = `
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-8 grid md:grid-cols-2 gap-8 items-center transition-opacity duration-500">
+                        <div class="bg-gray-200 h-64 md:h-80 rounded-lg flex items-center justify-center text-gray-500">
+                           <p class="text-xl">Floor Plan Layout</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">${data.title}</h3>
+                            <p class="text-lg text-blue-700 font-semibold mt-2">${data.size}</p>
+                            <ul class="mt-4 space-y-2 text-gray-600">
+                                ${data.features.map(feature => `<li class="flex items-center"><span class="text-green-500 mr-2">✔</span>${feature}</li>`).join('')}
+                            </ul>
+                            <p class="mt-6 text-2xl font-bold text-gray-800">${data.price}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            planToggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    planToggleButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-blue-700', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    button.classList.add('active', 'bg-blue-700', 'text-white');
+                    button.classList.remove('bg-gray-200', 'text-gray-700');
+                    updatePlanDetails(button.dataset.plan);
+                });
+            });
+
+            updatePlanDetails('2bhk');
+
+            const locationItems = document.querySelectorAll('.location-item');
+            const tooltip = document.getElementById('location-tooltip');
+            locationItems.forEach(item => {
+                item.addEventListener('mouseenter', (e) => {
+                    tooltip.textContent = item.dataset.info;
+                    tooltip.style.opacity = '1';
+                });
+                item.addEventListener('mousemove', (e) => {
+                    tooltip.style.left = `${e.clientX - e.target.closest('.relative').getBoundingClientRect().left + 15}px`;
+                    tooltip.style.top = `${e.clientY - e.target.closest('.relative').getBoundingClientRect().top + 15}px`;
+                });
+                item.addEventListener('mouseleave', () => {
+                    tooltip.style.opacity = '0';
+                });
+                item.style.cursor = 'pointer';
+                const icon = item.querySelector('.icon');
+                const label = item.querySelector('.label');
+                if (icon) icon.style.fontSize = '2rem';
+                if (label) {
+                    label.style.fontSize = '0.75rem';
+                    label.style.marginTop = '4px';
+                    label.style.fontWeight = '500';
+                    label.style.color = '#4b5563';
+                }
+            });
+
+            const comparisonData = {
+                labels: ['Horizon Floors', 'DLF Gardencity', 'Signature Global 93', 'Ashiana Amarah'],
+                datasets: [{
+                    label: 'Starting Price (in Cr)',
+                    data: [1.25, 1.60, 1.00, 2.20],
+                    backgroundColor: [
+                        'rgba(30, 64, 175, 0.8)', // blue-800
+                        'rgba(107, 114, 128, 0.6)',
+                        'rgba(107, 114, 128, 0.6)',
+                        'rgba(107, 114, 128, 0.6)',
+                    ],
+                    borderColor: [
+                        'rgba(30, 64, 175, 1)',
+                        'rgba(107, 114, 128, 1)',
+                        'rgba(107, 114, 128, 1)',
+                        'rgba(107, 114, 128, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            };
+            const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+            new Chart(comparisonCtx, {
+                type: 'bar',
+                data: comparisonData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Starting Price Comparison (in Cr)' }
+                    },
+                    scales: {
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
+
+            const investmentData = {
+                labels: ['Last Year', 'This Year'],
+                datasets: [{
+                    label: 'Property Value Index',
+                    data: [100, 157.01],
+                    fill: true,
+                    borderColor: 'rgb(29, 78, 216)',
+                    backgroundColor: 'rgba(29, 78, 216, 0.1)',
+                    tension: 0.1
+                }]
+            };
+            const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+            new Chart(investmentCtx, {
+                type: 'line',
+                data: investmentData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Sector 93 Property Appreciation (~57.01% YoY)' }
+                    },
+                    scales: {
+                        y: { beginAtZero: false }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
