@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Floors | Sector 93, Gurugram | Interactive Showcase</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3e2.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 320px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container { height: 400px; }
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #1e40af; /* blue-800 */
-            border-bottom-color: #1e40af;
-        }
-        .section-fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .section-fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gradient-hero {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
-        }
-        .cta-animate {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(30,64,175,0.3);}
-            70% { box-shadow: 0 0 0 10px rgba(30,64,175,0);}
-        }
-        .contact-gradient {
-            background: linear-gradient(135deg, #1e40af 30%, #2563eb 100%);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Floors | Sector 93, Gurugram</title>
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3e2.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .nav-link {
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #1e40af;
+      border-bottom-color: #1e40af;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-gray-900">Horizon Floors</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#overview" class="nav-link text-gray-600 font-medium pb-1">Overview</a>
-                <a href="#location" class="nav-link text-gray-600 font-medium pb-1">Location</a>
-                <a href="#plans" class="nav-link text-gray-600 font-medium pb-1">Floor Plans</a>
-                <a href="#amenities" class="nav-link text-gray-600 font-medium pb-1">Amenities</a>
-                <a href="#comparison" class="nav-link text-gray-600 font-medium pb-1">Comparison</a>
-            </div>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold text-gray-900">Horizon Floors</a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#overview" class="nav-link text-gray-600 font-medium pb-1">Overview</a>
+        <a href="#location" class="nav-link text-gray-600 font-medium pb-1">Location</a>
+        <a href="#plans" class="nav-link text-gray-600 font-medium pb-1">Floor Plans</a>
+        <a href="#amenities" class="nav-link text-gray-600 font-medium pb-1">Amenities</a>
+        <a href="#comparison" class="nav-link text-gray-600 font-medium pb-1">Comparison</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Add remaining sections here like #overview, #location, etc. -->
+  <!-- Sections -->
+  <section id="overview" class="container mx-auto px-6 py-12">
+    <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+    <p class="text-gray-700">Horizon Floors in Sector 93, Gurugram is a premium residential project offering luxury living with modern amenities and excellent connectivity.</p>
+  </section>
 
+  <section id="location" class="container mx-auto px-6 py-12 bg-white">
+    <h2 class="text-2xl font-semibold mb-4">Location</h2>
+    <p class="text-gray-700">Strategically located near Dwarka Expressway, with easy access to schools, hospitals, and shopping hubs.</p>
+  </section>
+
+  <section id="plans" class="container mx-auto px-6 py-12">
+    <h2 class="text-2xl font-semibold mb-4">Floor Plans</h2>
+    <p class="text-gray-700">Explore 2BHK and 3BHK configurations designed with space efficiency and aesthetic appeal.</p>
+  </section>
+
+  <section id="amenities" class="container mx-auto px-6 py-12 bg-white">
+    <h2 class="text-2xl font-semibold mb-4">Amenities</h2>
+    <ul class="list-disc pl-5 text-gray-700">
+      <li>Clubhouse with indoor games</li>
+      <li>Swimming pool and gym</li>
+      <li>24x7 security and power backup</li>
+    </ul>
+  </section>
+
+  <section id="comparison" class="container mx-auto px-6 py-12">
+    <h2 class="text-2xl font-semibold mb-4">Comparison</h2>
+    <canvas id="comparisonChart" class="w-full max-w-3xl mx-auto"></canvas>
+    <script>
+      const ctx = document.getElementById('comparisonChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Horizon Floors', 'Other Projects'],
+          datasets: [{
+            label: 'Price per Sq. Ft.',
+            data: [5500, 6200],
+            backgroundColor: ['#1e40af', '#94a3b8']
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    </script>
+  </section>
 </body>
 </html>
