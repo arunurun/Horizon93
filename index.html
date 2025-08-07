@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horizon Floors | Sector 93, Gurugram | Interactive Showcase</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for the comparison and investment charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts for the Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base font styling */
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Chart container styling for responsiveness */
         .chart-container {
             position: relative;
             width: 100%;
@@ -27,6 +32,7 @@
                 height: 400px;
             }
         }
+        /* Navigation link hover and active states */
         .nav-link {
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
@@ -35,6 +41,7 @@
             color: #1e40af; /* blue-800 */
             border-bottom-color: #1e40af;
         }
+        /* Fade-in effect for sections on scroll */
         .section-fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -44,6 +51,7 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Input field styling */
         .input-style {
             transition: all 0.2s ease-in-out;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
@@ -51,6 +59,7 @@
         .input-style:focus {
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); /* blue-500 with opacity */
         }
+        /* Styling for a custom modal (not used in this version) */
         .modal {
             display: none;
             position: fixed;
@@ -97,6 +106,7 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* Loading spinner animation */
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #3498db;
@@ -110,6 +120,7 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Map container styling for aspect ratio and shadows */
         .map-container {
             position: relative;
             height: 500px;
@@ -121,6 +132,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header and Navigation -->
     <header id="navbar" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center flex-wrap">
             <a href="#" class="text-xl font-bold text-gray-900">Horizon Floors</a>
@@ -139,6 +151,7 @@
                 </svg>
             </button>
         </nav>
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="#overview" class="block nav-link text-gray-600 py-1">Overview</a>
             <a href="#location" class="block nav-link text-gray-600 py-1">Location</a>
@@ -151,6 +164,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="relative bg-gradient-to-br from-blue-50 to-gray-100 py-20 md:py-32">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Your Gateway to an Elevated Lifestyle</h1>
@@ -172,6 +186,7 @@
             </div>
         </section>
 
+        <!-- Overview Section -->
         <section id="overview" class="py-16 md:py-24 bg-white section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -187,21 +202,21 @@
                         <p class="text-gray-600">Experience a host of world-class amenities including a clubhouse, temperature-controlled pool, and lush green parks within a secure gated township.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                         <div class="text-blue-700 mb-4">
+                       <div class="text-blue-700 mb-4">
                             <span class="text-4xl">📍</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Prime Location</h3>
                         <p class="text-gray-600">Enjoy seamless connectivity to Dwarka Expressway, NH-8, and IGI Airport, with top schools, hospitals, and malls just minutes away.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                         <div class="text-blue-700 mb-4">
+                       <div class="text-blue-700 mb-4">
                             <span class="text-4xl">💡</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Future-Ready Design</h3>
                         <p class="text-gray-600">Live in a home with private lifts, dedicated parking, two-side open layouts, EV charging points, and premium interior finishes.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                         <div class="text-blue-700 mb-4">
+                       <div class="text-blue-700 mb-4">
                             <span class="text-4xl">📈</span>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">Strong Investment</h3>
@@ -211,6 +226,7 @@
             </div>
         </section>
 
+        <!-- Location Section -->
         <section id="location" class="py-16 md:py-24 bg-gray-50 section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -231,6 +247,7 @@
             </div>
         </section>
 
+        <!-- Floor Plans Section -->
         <section id="plans" class="py-16 md:py-24 bg-white section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -248,6 +265,7 @@
             </div>
         </section>
 
+        <!-- Amenities Section -->
         <section id="amenities" class="py-16 md:py-24 bg-gray-50 section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -291,6 +309,7 @@
             </div>
         </section>
 
+        <!-- Comparison Section -->
         <section id="comparison" class="py-16 md:py-24 bg-white section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -303,6 +322,7 @@
             </div>
         </section>
 
+        <!-- Investment Section -->
         <section id="investment" class="py-16 md:py-24 bg-gray-50 section-fade-in">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -326,6 +346,7 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="py-16 md:py-24 bg-blue-800 text-white section-fade-in">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold">Ready to Take the Next Step?</h2>
@@ -337,6 +358,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 py-8">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Horizon Floors by Guliani Group. All rights reserved.</p>
@@ -344,8 +366,10 @@
         </div>
     </footer>
     
+    <!-- JavaScript for interactivity -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu functionality
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
@@ -359,6 +383,7 @@
                 }
             });
 
+            // Intersection Observer for active navigation links
             const sections = document.querySelectorAll('section');
             const navObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -375,6 +400,7 @@
             }, { rootMargin: "-50% 0px -50% 0px" });
             sections.forEach(section => navObserver.observe(section));
 
+            // Intersection Observer for fade-in animations
             const fadeInObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -387,28 +413,28 @@
                 fadeInObserver.observe(section);
             });
 
-            // Using placeholder images for guaranteed display
+            // Floor plan data and image mapping
             const planData = {
                 '2bhk': {
                     title: '2 BHK Independent Floor',
                     size: '963 sq. ft.',
                     price: '₹1.25 Cr* Onwards',
                     features: ['2 Bedrooms', 'Spacious Living Area', 'Modern Kitchen', '2 Wide Balconies', 'Private Lift Access'],
-                    image: 'https://placehold.co/600x400/cccccc/333333?text=2+BHK+Plan'
+                    image: 'uploaded:2_0.jpeg-f3763f10-605b-418a-b456-13ba8fdb8325'
                 },
                 '2.5bhk': {
                     title: '2.5 BHK Independent Floor',
                     size: '1250 sq. ft. (Est.)',
                     price: 'Starting from ₹1.35 Cr* (Est.)',
                     features: ['2 Bedrooms + Study', 'Spacious Drawing & Dining', 'Modern Kitchen', '3 Attached Balconies', 'Dedicated Parking & Lift'],
-                    image: 'https://placehold.co/600x400/cccccc/333333?text=2.5+BHK+Plan'
+                    image: 'uploaded:2_5.jpeg-5d0ddf56-0d90-4b88-bc47-42dcd7ed5ba4'
                 },
                 '3bhk': {
                     title: '3 BHK Independent Floor',
                     size: '1395 sq. ft.',
                     price: 'Starting from ₹1.5 Cr* (Est.)',
                     features: ['3 Bedrooms', 'Large Living & Dining', 'Modular Kitchen', '3 Attached Balconies', 'Dedicated Parking & Lift'],
-                    image: 'https://placehold.co/600x400/cccccc/333333?text=3+BHK+Plan'
+                    image: 'uploaded:3_0.jpg-eae2a768-fbce-4810-b23a-bbc275e6d9a6'
                 }
             };
 
@@ -435,6 +461,7 @@
                 `;
             }
 
+            // Event listeners for plan toggle buttons
             planToggleButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     planToggleButtons.forEach(btn => {
@@ -447,8 +474,10 @@
                 });
             });
 
+            // Initialize with the default floor plan
             updatePlanDetails('2bhk');
 
+            // Chart.js initialization for comparison chart
             const comparisonData = {
                 labels: ['Horizon Floors', 'DLF Gardencity', 'Signature Global 93', 'Ashiana Amarah'],
                 datasets: [{
@@ -487,6 +516,7 @@
                 }
             });
 
+            // Chart.js initialization for investment chart
             const investmentData = {
                 labels: ['Last Year', 'This Year'],
                 datasets: [{
@@ -515,6 +545,7 @@
                 }
             });
 
+            // Investment Insight generation using Gemini API
             const investmentAmountInput = document.getElementById('investmentAmount');
             const generateInsightBtn = document.getElementById('generateInsightBtn');
             const investmentInsightOutput = document.getElementById('investmentInsightOutput');
@@ -561,14 +592,13 @@
                             result.candidates[0].content && result.candidates[0].content.parts &&
                             result.candidates[0].content.parts.length > 0) {
                             const text = result.candidates[0].content.parts[0].text;
-                            investmentInsightOutput.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+                            investmentInsightOutput.innerHTML = `<p>${text}</p>`;
                         } else {
-                            investmentInsightOutput.innerHTML = '<p class="text-gray-600">Could not generate insight at this time. Please try again later.</p>';
+                            investmentInsightOutput.innerHTML = '<p class="text-red-600">Failed to generate insight. Please try again.</p>';
                         }
-                        break;
+                        break; // Exit the loop on success or non-retryable error
                     } catch (error) {
-                        console.error('Error fetching Gemini API response:', error);
-                        investmentInsightOutput.innerHTML = '<p class="text-red-600">Failed to generate insight. Please check your input and try again.</p>';
+                        investmentInsightOutput.innerHTML = `<p class="text-red-600">An error occurred: ${error.message}.</p>`;
                         break;
                     }
                 }
