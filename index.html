@@ -7,65 +7,60 @@
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f3e2.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    section { min-height: 50vh; border-bottom: 1px solid #ddd; padding-top: 4rem; }
-    .nav-link {
-      transition: all 0.3s ease;
-      border-bottom: 2px solid transparent;
-    }
-    .nav-link:hover,
-    .nav-link.active {
-      color: #1e40af;
-      border-bottom-color: #1e40af;
+    body {
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-900">
 
-  <!-- Navbar -->
-  <header class="bg-white/80 backdrop-blur sticky top-0 z-50 shadow">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-gray-900">Horizon Floors</a>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#overview" class="nav-link text-gray-600 font-medium pb-1">Overview</a>
-        <a href="#location" class="nav-link text-gray-600 font-medium pb-1">Location</a>
-        <a href="#plans" class="nav-link text-gray-600 font-medium pb-1">Floor Plans</a>
-        <a href="#amenities" class="nav-link text-gray-600 font-medium pb-1">Amenities</a>
-        <a href="#comparison" class="nav-link text-gray-600 font-medium pb-1">Comparison</a>
-      </div>
-    </nav>
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-50 shadow p-4">
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold">Horizon Floors</div>
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="#overview" class="hover:text-blue-600">Overview</a>
+        <a href="#location" class="hover:text-blue-600">Location</a>
+        <a href="#plans" class="hover:text-blue-600">Floor Plans</a>
+        <a href="#amenities" class="hover:text-blue-600">Amenities</a>
+        <a href="#comparison" class="hover:text-blue-600">Comparison</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Sections -->
-  <section id="overview" class="container mx-auto px-6">
+  <!-- Overview -->
+  <section id="overview" class="w-full px-6 py-20 bg-blue-100">
     <h2 class="text-2xl font-semibold mb-4">Overview</h2>
-    <p class="text-gray-700">Welcome to Horizon Floors, Sector 93, Gurugram. Premium low-rise living.</p>
+    <p>Premium low-rise 3BHK homes located in Sector 93, Gurugram with modern amenities and peaceful surroundings.</p>
   </section>
 
-  <section id="location" class="container mx-auto px-6 bg-white">
+  <!-- Location -->
+  <section id="location" class="w-full px-6 py-20 bg-green-100">
     <h2 class="text-2xl font-semibold mb-4">Location</h2>
-    <p class="text-gray-700">Excellent connectivity to Dwarka Expressway and NH-48.</p>
+    <p>Located 10 minutes from Dwarka Expressway and 20 minutes from IGI Airport.</p>
   </section>
 
-  <section id="plans" class="container mx-auto px-6">
+  <!-- Floor Plans -->
+  <section id="plans" class="w-full px-6 py-20 bg-yellow-100">
     <h2 class="text-2xl font-semibold mb-4">Floor Plans</h2>
-    <p class="text-gray-700">Spacious 3BHK layouts with modern design and sunlight optimization.</p>
+    <p>Spacious 3BHK plans with large balconies and natural lighting.</p>
   </section>
 
-  <section id="amenities" class="container mx-auto px-6 bg-white">
+  <!-- Amenities -->
+  <section id="amenities" class="w-full px-6 py-20 bg-pink-100">
     <h2 class="text-2xl font-semibold mb-4">Amenities</h2>
-    <ul class="list-disc pl-5 text-gray-700">
-      <li>Swimming Pool</li>
-      <li>24x7 Security</li>
+    <ul class="list-disc pl-5">
       <li>Clubhouse</li>
+      <li>Swimming Pool</li>
+      <li>Power Backup</li>
     </ul>
   </section>
 
-  <section id="comparison" class="container mx-auto px-6">
+  <!-- Comparison -->
+  <section id="comparison" class="w-full px-6 py-20 bg-white">
     <h2 class="text-2xl font-semibold mb-4">Comparison</h2>
-    <canvas id="comparisonChart" class="w-full max-w-3xl mx-auto"></canvas>
+    <canvas id="comparisonChart" class="max-w-xl mx-auto"></canvas>
   </section>
 
   <!-- Chart Script -->
@@ -78,7 +73,7 @@
           labels: ['Horizon Floors', 'Other Projects'],
           datasets: [{
             label: 'Price per Sq. Ft.',
-            data: [5500, 6200],
+            data: [5500, 6300],
             backgroundColor: ['#1e40af', '#94a3b8']
           }]
         },
