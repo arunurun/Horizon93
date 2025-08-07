@@ -15,7 +15,6 @@
         - Report Info: Competitive Pricing -> Goal: Compare -> Viz: Interactive Bar Chart -> Interaction: Hover for details -> Justification: Immediately visualizes the 'premium affordable' value proposition against competitors. -> Library: Chart.js.
         - Report Info: Property Appreciation (57.01%) -> Goal: Show Growth -> Viz: Line Chart -> Interaction: Animate on scroll -> Justification: Powerfully quantifies the investment argument, more impactful than text. -> Library: Chart.js.
         - Report Info: Vicinity -> Goal: Organize & Locate -> Viz: Google Maps Embed -> Interaction: Pan/Zoom -> Justification: Provides a real, dynamic map experience that is more useful and familiar to users than a static image or a stylized diagram. -> Library/Method: HTML/iFrame.
-        - NEW: Report Info: User Inquiry -> Goal: Personalize Follow-up -> Viz: Dynamic Text in Modal -> Interaction: Form Submission -> Justification: Provides immediate, tailored engagement post-inquiry, enhancing user experience. -> Library/Method: Gemini API (LLM).
         - NEW: Report Info: Investment Amount -> Goal: Provide Insight -> Viz: Dynamic Text -> Interaction: Button Click -> Justification: Offers personalized financial perspective, making the investment case more tangible. -> Library/Method: Gemini API (LLM).
         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -143,7 +142,8 @@
                 <a href="#comparison" class="nav-link text-gray-600 font-medium pb-1">Comparison</a>
                 <a href="#investment" class="nav-link text-gray-600 font-medium pb-1">Investment</a>
             </div>
-            <a href="#contact" class="hidden md:block bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-800 transition-all duration-200">Enquire Now</a>
+            <!-- This link now redirects to the specified external page -->
+            <a href="https://www.elbrusinfratech.com/contact-html/" target="_blank" class="hidden md:block bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-800 transition-all duration-200">Enquire Now</a>
             <button id="mobile-menu-button" class="md:hidden text-gray-800 p-2 rounded-md hover:bg-gray-100 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -157,7 +157,8 @@
             <a href="#amenities" class="block nav-link text-gray-600 py-1">Amenities</a>
             <a href="#comparison" class="block nav-link text-gray-600 py-1">Comparison</a>
             <a href="#investment" class="block nav-link text-gray-600 py-1">Investment</a>
-            <a href="#contact" class="block bg-blue-700 text-white text-center mt-2 px-4 py-2 rounded-lg hover:bg-blue-800 transition">Enquire Now</a>
+            <!-- This link now also redirects to the external page -->
+            <a href="https://www.elbrusinfratech.com/contact-html/" target="_blank" class="block w-full text-center bg-blue-700 text-white mt-2 px-4 py-2 rounded-lg hover:bg-blue-800 transition">Enquire Now</a>
         </div>
     </header>
 
@@ -168,7 +169,7 @@
                 <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Discover Horizon Floors in Sector 93, Gurugram – where the privacy of independent living meets the luxury of a gated community.</p>
                 <div class="mt-8 flex justify-center gap-4 flex-wrap">
                     <div class="bg-white rounded-xl p-4 shadow-md text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <span class="font-bold text-blue-700">2 & 3 BHK</span>
+                        <span class="font-bold text-blue-700">2, 2.5 & 3 BHK</span>
                         <p class="text-sm text-gray-500">Independent Floors</p>
                     </div>
                     <div class="bg-white rounded-xl p-4 shadow-md text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
@@ -250,7 +251,9 @@
                     <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">Explore our thoughtfully designed floor plans. Whether you're looking for a cozy 2 BHK or a more spacious 3 BHK, each independent floor is crafted for comfort, privacy, and luxury. Use the buttons below to toggle between the different configurations.</p>
                 </div>
                 <div class="flex justify-center mb-8 space-x-4">
+                    <!-- Updated buttons to include 2.5 BHK -->
                     <button class="plan-toggle-btn active bg-blue-700 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-800 transition" data-plan="2bhk">2 BHK</button>
+                    <button class="plan-toggle-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg shadow-sm hover:bg-gray-300 transition" data-plan="2.5bhk">2.5 BHK</button>
                     <button class="plan-toggle-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg shadow-sm hover:bg-gray-300 transition" data-plan="3bhk">3 BHK</button>
                 </div>
 
@@ -275,11 +278,11 @@
                         <h3 class="font-semibold mt-2">Temp-Controlled Pool</h3>
                     </div>
                     <div class="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                        <span class="text-4xl">🏋️</span>
+                        <span class="text-4xl">🏋️‍♀️</span>
                         <h3 class="font-semibold mt-2">Indoor Gym</h3>
                     </div>
                     <div class="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                        <span class="text-4xl">🏃</span>
+                        <span class="text-4xl">🏃‍♀️</span>
                         <h3 class="font-semibold mt-2">Jogging Tracks</h3>
                     </div>
                     <div class="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
@@ -291,7 +294,7 @@
                         <h3 class="font-semibold mt-2">Paddle Court</h3>
                     </div>
                     <div class="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                        <span class="text-4xl">🤸</span>
+                        <span class="text-4xl">🤸‍♂️</span>
                         <h3 class="font-semibold mt-2">Kids' Play Area</h3>
                     </div>
                     <div class="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
@@ -340,22 +343,10 @@
         <section id="contact" class="py-16 md:py-24 bg-blue-800 text-white section-fade-in">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold">Ready to Take the Next Step?</h2>
-                <p class="mt-3 text-lg text-blue-200 max-w-2xl mx-auto">Experience the unique charm and superior offerings of Horizon Floors firsthand. Fill out the form below to schedule a personalized consultation with our team.</p>
-                <form id="contactForm" class="mt-8 max-w-xl mx-auto bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-xl">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <input type="text" id="contactName" placeholder="Your Name" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 input-style">
-                        <input type="email" id="contactEmail" placeholder="Your Email" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 input-style">
-                    </div>
-                    <div class="mt-4">
-                        <input type="tel" id="contactPhone" placeholder="Your Phone Number" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 input-style">
-                    </div>
-                    <div class="mt-4">
-                        <textarea id="contactMessage" placeholder="Your Message (Optional)" rows="4" class="w-full p-3 rounded-lg bg-white/90 text-gray-800 input-style"></textarea>
-                    </div>
-                    <div class="mt-6">
-                        <button type="submit" class="w-full sm:w-auto bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-blue-100 transition-colors shadow-lg">Submit Enquiry ✨</button>
-                    </div>
-                </form>
+                <p class="mt-3 text-lg text-blue-200 max-w-2xl mx-auto">Experience the unique charm and superior offerings of Horizon Floors firsthand. Click below to get in touch with our team.</p>
+                <div class="mt-8">
+                    <a href="https://www.elbrusinfratech.com/contact-html/" target="_blank" class="inline-block bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-blue-100 transition-colors shadow-lg">Submit Enquiry ✨</a>
+                </div>
             </div>
         </section>
     </main>
@@ -366,16 +357,6 @@
             <p class="text-sm mt-2">HARERA No. 55 of 2023. This is for informational purposes only and does not constitute an offer or solicitation.</p>
         </div>
     </footer>
-
-    <!-- Personalized Response Modal -->
-    <div id="responseModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4" id="modalTitle">Thank You for Your Inquiry!</h3>
-            <div id="modalLoader" class="loader"></div>
-            <p id="modalMessage" class="text-gray-700 mt-4"></p>
-        </div>
-    </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -420,20 +401,28 @@
                 fadeInObserver.observe(section);
             });
 
+            // Updated plan data with direct image URLs
             const planData = {
                 '2bhk': {
                     title: '2 BHK Independent Floor',
                     size: '963 sq. ft.',
                     price: '₹1.25 Cr* Onwards',
                     features: ['2 Bedrooms', 'Spacious Living Area', 'Modern Kitchen', '2 Wide Balconies', 'Private Lift Access'],
-                    image: 'https://placehold.co/600x400/93c5fd/1e40af?text=2+BHK+Floor+Plan'
+                    image: 'uploaded:2_0.jpeg-f3763f10-605b-418a-b456-13ba8fdb8325'
+                },
+                '2.5bhk': {
+                    title: '2.5 BHK Independent Floor',
+                    size: '1250 sq. ft. (Est.)',
+                    price: 'Starting from ₹1.35 Cr* (Est.)',
+                    features: ['2 Bedrooms + Study', 'Spacious Drawing & Dining', 'Modern Kitchen', '3 Attached Balconies', 'Dedicated Parking & Lift'],
+                    image: 'uploaded:2_5.jpeg-5d0ddf56-0d90-4b88-bc47-42dcd7ed5ba4'
                 },
                 '3bhk': {
                     title: '3 BHK Independent Floor',
                     size: '1395 sq. ft.',
                     price: 'Starting from ₹1.5 Cr* (Est.)',
                     features: ['3 Bedrooms', 'Large Living & Dining', 'Modular Kitchen', '3 Attached Balconies', 'Dedicated Parking & Lift'],
-                    image: 'https://placehold.co/600x400/93c5fd/1e40af?text=3+BHK+Floor+Plan'
+                    image: 'uploaded:3_0.jpg-eae2a768-fbce-4810-b23a-bbc275e6d9a6'
                 }
             };
 
@@ -442,10 +431,11 @@
 
             function updatePlanDetails(planType) {
                 const data = planData[planType];
+                
                 planDetailsContainer.innerHTML = `
                     <div class="bg-gray-50 rounded-xl shadow-lg p-8 grid md:grid-cols-2 gap-8 items-center transition-opacity duration-300 animate-fade-in">
                         <div class="rounded-lg overflow-hidden">
-                           <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover rounded-lg shadow-md">
+                           <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900">${data.title}</h3>
@@ -471,6 +461,7 @@
                 });
             });
 
+            // Initial load
             updatePlanDetails('2bhk');
 
             const comparisonData = {
@@ -539,82 +530,7 @@
                 }
             });
 
-            // Gemini API Integration - Personalized Follow-up
-            const contactForm = document.getElementById('contactForm');
-            const responseModal = document.getElementById('responseModal');
-            const modalLoader = document.getElementById('modalLoader');
-            const modalMessage = document.getElementById('modalMessage');
-            const closeButton = document.querySelector('.close-button');
-
-            closeButton.addEventListener('click', () => {
-                responseModal.style.display = 'none';
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target == responseModal) {
-                    responseModal.style.display = 'none';
-                }
-            });
-
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                responseModal.style.display = 'flex';
-                modalLoader.style.display = 'block';
-                modalMessage.textContent = '';
-
-                const name = document.getElementById('contactName').value;
-                const message = document.getElementById('contactMessage').value;
-                const email = document.getElementById('contactEmail').value;
-                const phone = document.getElementById('contactPhone').value;
-
-                let prompt = `Generate a personalized thank you message for a real estate inquiry. The user's name is "${name}". Their message is "${message || 'No specific message provided.'}". Their email is ${email || 'not provided'} and phone is ${phone || 'not provided'}. Suggest 2-3 clear next steps or relevant pieces of information they might find useful regarding Horizon Floors, Sector 93, Gurugram. Keep it concise and encouraging.`;
-
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                const payload = { contents: chatHistory };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-                let retries = 0;
-                const maxRetries = 3;
-                const baseDelay = 1000; // 1 second
-
-                while (retries < maxRetries) {
-                    try {
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (response.status === 429) { // Too Many Requests
-                            const delay = baseDelay * Math.pow(2, retries);
-                            retries++;
-                            await new Promise(resolve => setTimeout(resolve, delay));
-                            continue;
-                        }
-
-                        const result = await response.json();
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            const text = result.candidates[0].content.parts[0].text;
-                            modalMessage.innerHTML = text.replace(/\n/g, '<br>');
-                        } else {
-                            modalMessage.textContent = 'Thank you for your inquiry! We will get back to you shortly.';
-                        }
-                        break; // Exit loop on success
-                    } catch (error) {
-                        console.error('Error fetching Gemini API response:', error);
-                        modalMessage.textContent = 'There was an issue processing your request. We will contact you soon!';
-                        break; // Exit loop on error
-                    } finally {
-                        modalLoader.style.display = 'none';
-                    }
-                }
-            });
-
-            // Gemini API Integration - Investment Insight Generator
+            // Gemini API Integration - Dynamic Investment Insight Generator
             const investmentAmountInput = document.getElementById('investmentAmount');
             const generateInsightBtn = document.getElementById('generateInsightBtn');
             const investmentInsightOutput = document.getElementById('investmentInsightOutput');
@@ -629,9 +545,9 @@
                 investmentInsightOutput.innerHTML = '<div class="loader"></div><p class="text-gray-600 mt-2">Generating your personalized insight...</p>';
 
                 const currentPrice = parseFloat(amount); // User's hypothetical investment in Cr
-                const appreciationRate = 0.5701; // 57.01% YoY appreciation
 
-                let prompt = `Given that property in Sector 93, Gurugram, has shown approximately 57.01% year-over-year appreciation, if someone invests ${currentPrice} Crore in Horizon Floors, provide a concise, encouraging investment outlook. Estimate the potential value after 1 year based on this appreciation rate. Also, briefly mention 2-3 key reasons why Horizon Floors is a strong investment, referencing its DDJAY scheme and prime location. Keep the response professional and under 150 words.`;
+                // New prompt with a more specific persona and project-focused details
+                let prompt = `As a real estate expert for New Gurgaon, craft a compelling investment pitch for a client considering investing ${currentPrice} Crore in Horizon Floors, Sector 93. Start by referencing the extraordinary 57.01% year-on-year appreciation data for the area to establish a strong market context. Explain how this project capitalizes on that growth, highlighting its key features: the privacy of DDJAY-licensed independent floors and the strategic location with excellent connectivity to Dwarka Expressway. Conclude with a strong, confident recommendation for Horizon Floors as a top-tier investment opportunity. The response should be professional, data-driven, and under 150 words.`;
 
                 let chatHistory = [];
                 chatHistory.push({ role: "user", parts: [{ text: prompt }] });
@@ -641,7 +557,7 @@
 
                 let retries = 0;
                 const maxRetries = 3;
-                const baseDelay = 1000; // 1 second
+                const baseDelay = 1000;
 
                 while (retries < maxRetries) {
                     try {
@@ -651,7 +567,7 @@
                             body: JSON.stringify(payload)
                         });
 
-                        if (response.status === 429) { // Too Many Requests
+                        if (response.status === 429) {
                             const delay = baseDelay * Math.pow(2, retries);
                             retries++;
                             await new Promise(resolve => setTimeout(resolve, delay));
@@ -667,11 +583,11 @@
                         } else {
                             investmentInsightOutput.innerHTML = '<p class="text-gray-600">Could not generate insight at this time. Please try again later.</p>';
                         }
-                        break; // Exit loop on success
+                        break;
                     } catch (error) {
                         console.error('Error fetching Gemini API response:', error);
                         investmentInsightOutput.innerHTML = '<p class="text-red-600">Failed to generate insight. Please check your input and try again.</p>';
-                        break; // Exit loop on error
+                        break;
                     }
                 }
             });
